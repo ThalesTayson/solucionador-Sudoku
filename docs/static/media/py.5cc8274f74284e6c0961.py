@@ -333,7 +333,6 @@ class solucionaSudoku(object):
 
 def resolveSudoku(input_js : str):
     Element('resolver').element.disabled = True
-    Element('resolver').element.value = 'Aguarde'
     edit_input = input_js.split(",")
     input_sudoku = []
     i=0
@@ -343,7 +342,6 @@ def resolveSudoku(input_js : str):
             input_sudoku[a].append(int(edit_input[i]))
             i += 1
     task = solucionaSudoku(input_sudoku)
-    Element('resolver').element.value = 'Resolver'
     Element('resolver').element.disabled = False
     
 def onClick(event=None):
