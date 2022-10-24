@@ -4,6 +4,8 @@ import py from './py.py'
 import Pyloader from './loading.js'
 import './sudoku.css';
 
+var timer = null;
+
 function Sudoku(props) {
     
     let edit = [];
@@ -11,16 +13,17 @@ function Sudoku(props) {
         edit.push(null);
     }
     const [valuesInputs,setValuesInputs] = useState(edit);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        setTimeout(()=>{
+        timer = setInterval(()=>{
             if (document.getElementById("pyscript_loading_splash")){
                 setLoading(true);
             } else {
+                clearInterval(timer);
                 setLoading(false);
             }
         },1000);
-
+        
     },[loading]);
 
     return <main>
